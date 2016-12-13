@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
 //        persistenceStorage = new SharedPrefStorageImpl(getBaseContext());
-        persistenceStorage = new FileStorageImpl(getBaseContext());
+//        persistenceStorage = new FileStorageImpl(getBaseContext());
+        persistenceStorage = new SQLiteStorageImpl(getBaseContext());
 
         lvItemList = (ListView) findViewById(R.id.lvItemList);
         etItem = (EditText) findViewById(R.id.etItem);
