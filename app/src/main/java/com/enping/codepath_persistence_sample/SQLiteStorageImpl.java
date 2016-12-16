@@ -18,7 +18,11 @@ public class SQLiteStorageImpl extends SQLiteOpenHelper implements PersistenceSt
 
     private static final String TABLE_NAME = "todolist";
     private static final int DB_VERSION = 1;
+
+    //Column 0
     private static final String KEY_ID = "id";
+
+    //Column 1
     private static final String COLUMN_ITEM = "item";
 
     public SQLiteStorageImpl(Context context){
@@ -54,7 +58,7 @@ public class SQLiteStorageImpl extends SQLiteOpenHelper implements PersistenceSt
 
     @Override
     public void removeItem(String item) {
-        getWritableDatabase().delete(TABLE_NAME,COLUMN_ITEM+"='"+item+"'",null);
+        getWritableDatabase().delete(TABLE_NAME,COLUMN_ITEM+"=?",new String[]{item});
         Log.d("Storage","Remove: "+item);
     }
 
